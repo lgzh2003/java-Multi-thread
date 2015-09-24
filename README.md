@@ -1,7 +1,7 @@
 # java-Multi-thread
 
 ###Call a Thread
-class Runner extends Thread{
+ class Runner extends Thread{
 	public void run() {//override run() click right-> source-> override method
 		for(int i=0; i<10;i++){
 			System.out.println("Hello "+i);	
@@ -13,10 +13,10 @@ class Runner extends Thread{
 			}
 		}
 	}
-	
-}
+ }
 
 ==========================
+
 class Runner implements Runnable{//Runnable is an interface that has only one method in it
 	
 	
@@ -33,7 +33,10 @@ class Runner implements Runnable{//Runnable is an interface that has only one me
 		}
 	}
 }
+
+
 ==================================
+
 Thread t1=new Thread(new Runnable(){
 			public void run(){
 				for(int i=0;i<10;i++){
@@ -47,6 +50,8 @@ Thread t1=new Thread(new Runnable(){
 				}
 			}
 		});//override the run() when new it.
+		
+		
 ========================================================
 
 ###volatitle keywords
@@ -86,7 +91,10 @@ public class App {
 		proc1.shutdown();
 	}
 }
+
+
 ==================================================================
+
 ###synchronized keyword
 
 public class App {
@@ -131,7 +139,10 @@ public class App {
 		System.out.println("Count is "+count);
 	}
 }
+
+
 ==========================================================
+
 ###Using synchronized Example
 //The codes mimic tons of people input and out put money into the same account at the same time
 
