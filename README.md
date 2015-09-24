@@ -18,8 +18,6 @@
 ==========================
 
       class Runner implements Runnable{//Runnable is an interface that has only one method in it
-	
-	
 	public void run() {//override run() click right-> source-> override method
 		for(int i=0; i<10;i++){
 			System.out.println("Hello "+i);
@@ -56,16 +54,13 @@
 
 ###volatitle keywords
      import java.util.Scanner;
-
      class Processor extends Thread{
-	
 	private volatile boolean running =true;
 	//volatile is to make sure that instruct will not be overlooked when being optimized.
 	//volatile is used in multi-thread programming(guarantee)
 	public void run(){//override
 		while(running){
 			System.out.println("Hello");
-			
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
@@ -83,11 +78,9 @@
 	public static void main(String[] args){
 		Processor proc1=new Processor();
 		proc1.start();
-		
 		System.out.println("Press return to stop....");
 		Scanner scanner = new Scanner(System.in);
 		scanner.nextLine();
-		
 		proc1.shutdown();
 	}
      }
@@ -124,10 +117,8 @@
 				}
 			}
 		});
-		
 		t1.start();
 		t2.start();
-		
 		try {
 			t1.join();
 			t2.join();// wait until other thread finished 
@@ -148,7 +139,6 @@
       class Account{
 	String name;
 	float money;
-	
 	public Account(String name,float money){
 		this.name=name;
 		this.money=money;
