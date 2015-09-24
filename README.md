@@ -1,7 +1,7 @@
 # java-Multi-thread
 
 ###Call a Thread
- class Runner extends Thread{
+     class Runner extends Thread{
 	public void run() {//override run() click right-> source-> override method
 		for(int i=0; i<10;i++){
 			System.out.println("Hello "+i);	
@@ -13,11 +13,11 @@
 			}
 		}
 	}
- }
+     }
 
 ==========================
 
-class Runner implements Runnable{//Runnable is an interface that has only one method in it
+      class Runner implements Runnable{//Runnable is an interface that has only one method in it
 	
 	
 	public void run() {//override run() click right-> source-> override method
@@ -32,12 +32,12 @@ class Runner implements Runnable{//Runnable is an interface that has only one me
 			}
 		}
 	}
-}
+     }
 
 
 ==================================
 
-Thread t1=new Thread(new Runnable(){
+      Thread t1=new Thread(new Runnable(){
 			public void run(){
 				for(int i=0;i<10;i++){
 					System.out.println("Hello "+i);
@@ -55,9 +55,9 @@ Thread t1=new Thread(new Runnable(){
 ========================================================
 
 ###volatitle keywords
-import java.util.Scanner;
+     import java.util.Scanner;
 
-class Processor extends Thread{
+     class Processor extends Thread{
 	
 	private volatile boolean running =true;
 	//volatile is to make sure that instruct will not be overlooked when being optimized.
@@ -77,9 +77,9 @@ class Processor extends Thread{
 	public void shutdown(){
 		running = false;
 	}
-}
+     }
 
-public class App {
+     public class App {
 	public static void main(String[] args){
 		Processor proc1=new Processor();
 		proc1.start();
@@ -90,14 +90,14 @@ public class App {
 		
 		proc1.shutdown();
 	}
-}
+     }
 
 
 ==================================================================
 
 ###synchronized keyword
 
-public class App {
+      public class App {
 	private int count=0;
 	public synchronized void increment(){
 		//without synchronized keywords the count will be fault sometimes
@@ -138,15 +138,14 @@ public class App {
 		
 		System.out.println("Count is "+count);
 	}
-}
+      }
 
 
 ==========================================================
 
 ###Using synchronized Example
-//The codes mimic tons of people input and out put money into the same account at the same time
-
-class Account{
+      //The codes mimic tons of people input and out put money into the same account at the same time
+      class Account{
 	String name;
 	float money;
 	
@@ -175,17 +174,17 @@ class Account{
 		money=tmp;
 	}
 	public float getBalance() {
-//		here, the getBanlance will not effect the money amount, so it do not needs 
-//		synchronized keywords
+       //	here, the getBanlance will not effect the money amount, so it do not needs 
+       //	synchronized keywords
         return money;
+      }
     }
-}
 
-public class App {
+     public class App {
 	private static int NUM_OF_THREAD = 10;
 	static Thread[] threads = new Thread[NUM_OF_THREAD];
     
-    public static void main(String[] args){
+     public static void main(String[] args){
         final Account acc = new Account("John", 1000.0f);
         for (int i = 0; i< NUM_OF_THREAD; i++) {
             threads[i] = new Thread(new Runnable() {
@@ -206,6 +205,6 @@ public class App {
             }
         }
         System.out.println("Finally, John's balance is:" + acc.getBalance());
-    }
-}
+      }
+     }
 
